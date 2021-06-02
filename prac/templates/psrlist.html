@@ -1,0 +1,138 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPS</title>
+         <link rel="stylesheet" type="text/css" href="{% static 'css/psrlistcss.css' %}">
+        <link rel="icon" href="{% static 'images/minilogo.png' %}" type="images/minilogo.png">
+        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+        <style>
+            .pictures{
+    width: 100%;
+  
+    background: #787070;
+/*    -image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/background.jpg' %}");*/
+}
+
+
+        </style>
+    </head>
+    <body>
+    <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
+    
+            <div id="main">
+                <div class="announcement">
+                    <p id="welcome-bar">Welcome to the Official Page of Government Pandemic Subsidy Site!</p>
+                </div>
+                <div class="navbar">
+                <div class="logo">
+                    <a href="HOME_PAGE.html"> <img src="{% static 'images/logo.png' %}" alt=""></a>
+            </div>
+            <nav>
+                
+                <ul>
+                   
+                    <a href="MENU_PAGE.html"><li>Home</li></a>
+                <a href="ABOUT_PAGE.html"><li>About us</li></a>
+                <a href="BLOG_PAGE.html"><li>Contact</li></a>
+                <a href="FAQ_PAGE.html"><li>Inquiries</li></a>
+                </ul>
+             </nav>
+        
+                 </div>
+<!-- END -->
+
+                        <div class="page">
+
+
+                                <p style="font-size: 35px;"> Hello, {{ pname.firstname.upper }} </p>
+                                <p style="color: #392613">Please fill in the necessary information</p>
+                                <p style="color: #392613"><b><i>NOTE: Please wait for the official list on our Facebook Page, thank you!<i><b></p>
+
+                                    {% csrf_token %}
+
+                                
+                                <form  class="second" method="POST" action='/prac/{{my.id}}/addItem'> 
+
+                                    <h1>Family Information</h1>
+                                    <input type="text" name="famname" id="famname" placeholder="Family Member First Name">
+                                    <input type="text" name="famsurname" id="famsurname" placeholder="Surname">
+                                    <input type="text" name="occupation" id="occupation" placeholder="Occupation">
+                                    <input type="number" name="salary"  id="salary" placeholder="salary">
+
+
+
+
+
+                        <table id="fam_salary">
+                            <tr>
+                                <th style="color:white">Applicant's Income information</th> 
+                                <th style="color:white">Status : Pending</th></tr>
+                            <tr>
+                                <th style="color:white">Occupation</th>
+                                <th style="color:white">Income</th>
+                            </tr>
+
+                                {% for item in pn.item_set.all %}
+                            <tr>
+                                <td>{{ item.text }} </td>
+                                <td>{{ item.address }} </td> 
+                            </tr>
+
+                            {% endfor %}
+                        </table>
+
+                        </div>
+
+
+<!-- FOOTER -->
+
+                 <footer class="footer">
+                    <div class="footer-left">
+                        <img src="{% static 'images/logo.png' %}">
+                
+                        <div class="socials">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <ul class="footer-right">
+                        <li>
+                            <h3>Socials</h3>
+                            
+                            <ul class="footer-box">
+                                <li><a href="https://www.facebook.com/blackcupcogeo/" target="_blank">Facebook</a></li>
+                                <li><a href="https://www.instagram.com/_rolianne/"target="_blank">Instagram</a></li>
+                                <li><a href="https://www.youtube.com/annemaestre"target="_blank">Youtube</a></li>
+                                
+                            </ul>
+                        </li>
+            
+                        <li class="features">
+                            <h3>Contact us</h3>
+                            
+                            <ul class="footer-box">
+                                <li><a href="mailto:blackcupcogeo@gmail.com" target="_blank">rolianne.maestre@gsfe.tupcavite.edu.ph</a></li>
+                                <li>0945 290 1920</li>
+                                
+                            </ul>
+                        </li>
+            
+                        <li>
+                            <h3>Address</h3>
+                            
+                            <ul class="footer-box">
+                                <li><a href="https://www.google.com/maps/place/Mabuhay+City+Subdivision/@14.3199002,120.9870772,17z/data" target="_blank">
+                                    Mabuhay City, Paliparan 3 Dasmarinas City Cavite, 4114</a></li>
+                                    <li><a href="https://www.google.com/maps/place/38+F.T.+Catapusan+Rd,+Alaza+Aldea,+Tanay,+1980+Rizal/@14.495869,121.2863773,17z/"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <div class="footer-bottom">
+                        <p>All Rights Reserved 2021</p>
+                    </div>
+                </footer>

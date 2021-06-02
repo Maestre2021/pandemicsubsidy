@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPS</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/psrformcss.css' %}">
+        <link rel="icon" href="{% static 'images/minilogo.png' %}" type="images/minilogo.png">
+        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+        <style>
+            .pictures{
+    width: 100%;
+  
+    background: #787070;
+/*    -image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/background.jpg' %}");*/
+}
+
+
+        </style>
+    </head>
+    <body>
+    <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
+    
+            <div id="main">
+                <div class="announcement">
+                    <p id="welcome-bar">Welcome to the Official Page of Government Pandemic Subsidy Site!</p>
+                </div>
+                <div class="navbar">
+                <div class="logo">
+                    <a href="psrform.html"> <img src="{% static 'images/logo.png' %}" alt=""></a>
+            </div>
+            <nav>
+                
+                <ul>
+                   
+                    <a href="MENU_PAGE.html"><li>Home</li></a>
+                <a href="ABOUT_PAGE.html"><li>About us</li></a>
+                <a href="BLOG_PAGE.html"><li>Contact</li></a>
+              <!--   <a href="FAQ_PAGE.html"><li>Inquiries</li></a> -->
+                </ul>
+             </nav>
+        
+                 </div>
+          
+    <!--End of ANNOUNCEMENT and NAVIGATION BAR-------------------------->
+
+
+
+                 <div class="pictures">
+            
+                
+                <form class="signbox" method="POST" action="prac/newlist_url">
+
+
+                    <h1>Sign Up</h1>
+                    <input type="text" name="firstname" id="firstname" placeholder="First name">
+                    <input type="text" name="surname" id="surname" placeholder="Surname">
+                    <input type="text" name="address" id="address" placeholder="Address">
+                    <input type="submit" name="submit" value="Sign up">
+                     {% csrf_token %}
+                </form>
+
+                <form class="logbox" action="psrform.html" method="post">
+                    <h1>Login</h1>
+                    <input type="text" name="username" id="username" placeholder="username">
+                    <input type="password" name="password" id="password" placeholder="password">
+                    <input type="submit" name="submit" value="Login">
+                </form>
+
+                <button>Explore</button>
+                
+               
+                <div class="trailer">
+                    <video src="{% static 'video/ayuda.mp4' %}" controls="true"></video>
+                    <span class="close">&times;</span> <!--DITO NAGTART GUMANA SLIGHT-->
+                </div>
+       
+
+   
+ 
+  
+       
+
+            </div>
+
+      <!--START FOOTER----------------------------------------------------->
+      <footer class="footer">
+        <div class="footer-left">
+            <img src="{% static 'images/logo.png' %}">
+    
+            <div class="socials">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+            </div>
+        </div>
+        <ul class="footer-right">
+            <li>
+                <h3>Socials</h3>
+                
+                <ul class="footer-box">
+                    <li><a href="https://www.facebook.com/blackcupcogeo/" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/_rolianne/"target="_blank">Instagram</a></li>
+                    <li><a href="https://www.youtube.com/annemaestre"target="_blank">Youtube</a></li>
+                    
+                </ul>
+            </li>
+
+            <li class="features">
+                <h3>Contact us</h3>
+                
+                <ul class="footer-box">
+                    <li><a href="mailto:blackcupcogeo@gmail.com" target="_blank">rolianne.maestre@gsfe.tupcavite.edu.ph</a></li>
+                    <li>0945 290 1920</li>
+                    
+                </ul>
+            </li>
+
+            <li>
+                <h3>Address</h3>
+                
+                <ul class="footer-box">
+                    <li><a href="https://www.google.com/maps/place/Mabuhay+City+Subdivision/@14.3199002,120.9870772,17z/data" target="_blank">
+                        Mabuhay City, Paliparan 3 Dasmarinas City Cavite, 4114</a></li>
+                        <li><a href="https://www.google.com/maps/place/38+F.T.+Catapusan+Rd,+Alaza+Aldea,+Tanay,+1980+Rizal/@14.495869,121.2863773,17z/"></a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="footer-bottom">
+            <p>All Rights Reserved 2021</p>
+        </div>
+    </footer>
+    <!--END FOOTER------------------------------------------------------>
+     
+    <!--START VIDEO------------------------------------------------------>
+    
+ 
+    <script>
+        const button = document.querySelector("button");
+        const close = document.querySelector(".close");
+        const trailer = document.querySelector(".trailer");
+        const video = document.querySelector("video");
+ 
+        button.addEventListener('click', ()=>{
+            trailer.style.visibility = "visible";
+            trailer.style.opacity = 1;
+ 
+        });
+ 
+          close.addEventListener('click', ()=>{
+            trailer.style.visibility = "hidden";
+            trailer.style.opacity = 0;
+ 
+            video.pause();
+            video.currentTime = 0;
+        });
+    </script>
+    <!--END VIDEO--------------------------------------------------->
+    
+</body>
+</html>

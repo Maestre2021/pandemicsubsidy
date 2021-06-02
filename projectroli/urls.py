@@ -1,10 +1,19 @@
-
 from django.conf.urls import url
-from CTList import views 
+from prac import views
+from django.conf.urls.static import static 
+from django.contrib import admin
+
 
 urlpatterns = [
-	url(r'^$' , views.MainPage, name='mainpage'),
-"""projectroli URL Configuration
+ 	url(r'^$', views.Main, name='mainpage'),
+ 	url(r'^prac/(\d+)/$', views.View, name='viewlist'),
+ 	url(r'^prac/newlist_url$', views.New, name='newlist'),
+ 	url(r'^prac/(\d+)/addItem$', views.addItem, name='additem'),
+ 	url(r'^admin/', admin.site.urls),
+ 	]
+
+
+"""anneproject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -18,10 +27,10 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+
 from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+]"""
