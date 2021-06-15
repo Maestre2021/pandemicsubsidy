@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>GPS</title>
-        <link rel="stylesheet" type="text/css" href="inquiriesandcommentscss.css">
+        <link rel="stylesheet" type="text/css" href="css/inquiriesandcommentscss.css">
         <link rel="icon" href="images/minilogo.png" type="images/minilogo.png">
         <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
         <style>
 
-            .page2{
-               background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("images/people.jpg");
+            .page6{
+               background: white;
             }
         </style>
     </head>
@@ -41,15 +41,19 @@
 <!-- END -->
 
      
-                 <div class="page2">
+                 <div class="page6">
                 
 
                        <div class="introduction">
-                        <h1>Your opinion matters</h1>
-                        <p>If you have any suggestions, questions, and comment. Please leave it here.</p>
-                        
+                           <br>
+                        <h1>Your Voice matters</h1>
+                        <p style="text-align: center;">If you have any suggestions, questions, and comment. Please leave it here.</p>
+                        <br>
+                        <forms >
+                        <label for="name" class="name">Name</label><br>
+                        <input type="text" id="name" name="name" placeholder="Name"><br>
                         <label for="message" class="message">Type of message</label><br>
-
+                        
                         <select name="message" id="message">
                         <option value="suggestion">Suggestion</option>
                         <option value="question">Question</option>
@@ -59,8 +63,8 @@
                         </select>
                         
                         <h3>Compose your message here</h3>
-                        <input type="text" name="typemessage" id="typemessage"><br>
-
+                        <textarea type="text" name="typemessage" id="typemessage"  cols="40" rows="13" ></textarea><br>
+                        </forms>
                        </div>
                    
                  </div>

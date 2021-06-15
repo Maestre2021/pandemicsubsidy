@@ -6,16 +6,16 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 def Main(request):
-
 	return render(request, 'psrform.html')
-
-
 
 def New(request):
 	pname = Psrsignup.objects.create(
 		firstname =request.POST['firstname'],
 		lastname = request.POST['surname'],
-		address = request.POST['address'],)
+		address = request.POST['address'],
+		occupation = request.POST['occupation']
+		salary_head = request.POST['salary'],
+		)
 
 	return redirect(f'/prac/{pname.id}/')
 
@@ -55,27 +55,6 @@ def manipulationofdata():
 #delete
 	res += '<br>Deleting an entry<br>'
 	nname.delete()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -7,7 +7,7 @@ class Psrsignup(models.Model):
 	lastname = models.CharField(max_length=50, default="", null=True)
 	address = models.TextField(default="")
 	occupation_head = models.CharField(max_length=50, default="")
-	salary_head = models.IntegerField(default="")
+	salaryhead = models.IntegerField(default="")
 
 class Familyinfo(models.Model):
 	familyname1 = models.CharField(max_length=50, default="")
@@ -19,7 +19,7 @@ class Familyinfo(models.Model):
 	salary1 = models.IntegerField(default="")
 	salary2 = models.IntegerField(default="")
 	salary3 = models.IntegerField(default="")
-	total_salary = models.IntegerField(default=None)
+	totalsalary = models.IntegerField(default=None)
 
 class Subsidyconfirmation(models.Model):
 	file = models.FileField(blank=True, null=True)
@@ -28,7 +28,7 @@ class Subsidyconfirmation(models.Model):
 	subsidy = models.IntegerField(default="")
 
 class Receivingplacedate(models.Model):
-	p_name = models.ForeignKey(Psrsignup, default="", on_delete=models.CASCADE)
+	pdname = models.ForeignKey(Psrsignup, default=None, on_delete=models.CASCADE)
 
 	PLACE_CHOICES = (
 	    ('Phase 1', 'PHASE1'),
@@ -41,7 +41,7 @@ class Receivingplacedate(models.Model):
 	time = models.TimeField(default="")
 
 class Receivingbankpawnshop(models.Model):
-	b_name = models.ForeignKey(Psrsignup, default="", on_delete=models.CASCADE)
+	bpname = models.ForeignKey(Psrsignup, default=None, on_delete=models.CASCADE)
 	BANKPAWN_CHOICES = (
 	    ('Landbank', 'LANDBANK'),
 	    ('PNB', 'PNB'),
@@ -54,8 +54,7 @@ class Receivingbankpawnshop(models.Model):
 	time = models.TimeField(default="")
 
 class PSRStatus(models.Model):
-	s_name = models.ForeignKey(Psrsignup, on_delete=models.CASCADE)
-
+	pstatus = models.ForeignKey(Psrsignup, default=None, on_delete=models.CASCADE)
 	STAT_CHOICE = {
 	('RECEIVED', 'received'),
 	('PENDING', 'pending'),
@@ -64,13 +63,14 @@ class PSRStatus(models.Model):
 	stat = models.CharField(max_length=20, default="", choices=STAT_CHOICE)
 
 class Additionalassistance(models.Model):
-	a_name = models.ForeignKey('Psrsignup', on_delete=models.CASCADE)
-	a_address = models.CharField(max_length=50, default="", null=True)
+	aaname = models.ForeignKey(Psrsignup, default=None, on_delete=models.CASCADE)
+	aaaddress = models.CharField(max_length=50, default="", null=True)
 	contact = models.IntegerField(default="")
 	loan = models.IntegerField(default="")
 
 class Inquries(models.Model):
-	name = models.CharField(max_length=30, default="")
+	iname = models.CharField(max_length=30, default="")
+	icontact = models.IntegerField(default=None)
 	comments = models.TextField(default="")
 	RATE_CHOICES = {
 		('1', 'poor'),
@@ -82,30 +82,6 @@ class Inquries(models.Model):
 	rate = models.CharField(max_length=2, default="", choices =RATE_CHOICES, null=True)
 
 
+
 	
 
-
-
-# class ApplicantStatus(models.Model);
-# 	name = models.ForeignKey(Psrsignup, default="", on_delete=models.CASCADE)
-# 	stat = models.CharField(max_length=20, default="")
-
-
-
-# Create your models here.
-
-# class pending
-# 	firstname
-# 	lastname
-# 	phase 
-
-# class item
-# 	foreign (pending)
-# 	occuption
-# 	salary
-# 	image
-# class familysalary
-# 	memr
-# 	ocu
-# 	salary
-# 	total
