@@ -1,65 +1,155 @@
+
+{% extends "navigation.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang=en>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>GPS</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/psrformcss.css' %}">
-        <link rel="icon" href="{% static 'images/minilogo.png' %}" type="images/minilogo.png">
-        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+{% block content %}
+ 
         <style>
-            .pictures{
-    width: 100%;
-  
-    background: #787070;
-/*    -image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/background.jpg' %}");*/
-}
+        .pictures{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
+        }
+         .reg{
+            width:600px;
+            height: 600px;
+            padding: 20px;
+            position: absolute;
+            left:-5%;
+            bottom: 360px;
+            transform: translate(22%,55%);
+            background: #191919;
+        }
 
 
-        </style>
+        .reg h1{
+            color: white;
+            text-align: center;
+        }
+
+        .reg input[type="text"],.reg input[type = "password"],.reg input[type= "number"]{
+            border:0;
+            background:none;
+            margin: 3px auto;
+            text-align: center;
+            border: 2px solid #FBEEE6;
+            padding: 7px 5px;
+            width: 100px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+
+        .reg input[type="submit"]{
+            border:0;
+            background:none;
+            display:block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #F9E79F;
+            padding: 14px 10px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        .reg input[type="submit"]:hover{
+            background: #F9E79F ;
+
+        
+        }
+        .log{
+               bottom: 350px;
+        }
+
+</style>
     </head>
     <body>
     <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
     
-            <div id="main">
-                <div class="announcement">
-                    <p id="welcome-bar">Welcome to the Official Page of Government Pandemic Subsidy Site!</p>
-                </div>
-                <div class="navbar">
-                <div class="logo">
-                    <a href="psrform.html"> <img src="{% static 'images/logo.png' %}" alt=""></a>
-            </div>
-            <nav>
-                
-                <ul>
-                   
-                    <a href="MENU_PAGE.html"><li>Home</li></a>
-                <a href="ABOUT_PAGE.html"><li>About us</li></a>
-                <a href="BLOG_PAGE.html"><li>Contact</li></a>
-              <!--   <a href="FAQ_PAGE.html"><li>Inquiries</li></a> -->
-                </ul>
-             </nav>
-        
-                 </div>
-          
     <!--End of ANNOUNCEMENT and NAVIGATION BAR-------------------------->
 
 
 
-                 <div class="pictures">
+    <div class="pictures">
             
                 
-                <form class="signbox" method="POST" action="prac/newlist_url">
+  <script src="{% static 'js/psrformjs.js' %}"></script>
+                <form class="registration" method="POST" action="prac/newlist_url">
+                 
+                    {% csrf_token %}
+                    <div class="reg">
+                        <h1>Registration</h1>
+                        <p style="color: white;">Personal Information</p>
+
+                        <input type="text" name="firstname" id="firstname" placeholder="First name">
+                        <input type="text" name="surname" id="surname" placeholder="Surname"> 
+                        <input type="text" name="occupation" id="occupation" placeholder="Occupation">
+                        <input type="number" name="salary" id="salary" placeholder="Salary" onkeyup="sum()"><br>
+
+                        <input type="text" name="address" id="address" placeholder="Address" style ="width: 455px;"><br>
+
+                
+
+                        <input type="text" name="username" id="username" placeholder="Username">
+                        <input type="password" name="password" id="password" placeholder="password">
+                        <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password"><br>
+                        <p style="color: white;">Family Information</p>
+
+                        <input style ="width: 215px;" type="text" name="Fullname1" id="Fullname1" placeholder="Fullname (SN GN MI)">
+                        <input type="text" name="occupation1" id="occupation1" placeholder="Occupation"> 
+                        <input type="number" name="salary1" id="salary1" placeholder="Salary"onkeyup="sum()"><br>
+
+                        <input style ="width: 215px;" type="text" name="Fullname2" id="Fullname2" placeholder="Fullname (SN GN MI)">
+                        <input type="text" name="occupation2" id="occupation2" placeholder="Occupation"> 
+                        <input type="number" name="salary2" id="salary2" placeholder="Salary"onkeyup="sum()"><br>
+
+                        <input style ="width: 215px;" type="text" name="Fullname3" id="Fullname3" placeholder="Fullname (SN GN MI)">
+                        <input type="text" name="occupation3" id="occupation3" placeholder="Occupation"> 
+                        <input type="number" name="salary3" id="salary3" placeholder="Salary"onkeyup="sum()"><br>
+                        <p style="color:white; font-size: x-small;"><b>NOTE:</b><br>(1) Only 4 members of the family (including the head of the family) will be included in the subsidy.<br>
+                                        (2) Please put 'none' if a family member does not have occupation.<br>
+                                        (3) Please put number zero (0) id a family member does not have salary.</b></p><br>
+                        <label for="totfam" style="color:white;">Total Family member</label>
+                        <input style ="width: 175px;" type="number" name="totalfamily" id="totalfamily" placeholder="Number of Family member" onkeyup="mult(this.value);"><br>
+                        <label for="famsal" style="color:white;">Family Monthly Salary</label>
+                        <input style ="width: 175px;" type="number" name="totalsalary" id="totalsalary" placeholder="Total Salary"><br>
+                        <label for="sub" style="color:white;">Total subsidy</label>
+                        <input style ="width: 175px;" type="number" name="expectedsubsidy" id="expectedsubsidy" placeholder="money to receive">
+                        <p style="color:white; font-size: x-small;">One family will receive PHP 4,000 REGARDLESS of number of family member in the house.</p>
+
+                          <input type="submit" name="submit" value="Sign Up">
+
+                    
 
 
-                    <h1>Sign Up</h1>
-                    <input type="text" name="firstname" id="firstname" placeholder="First name">
-                    <input type="text" name="surname" id="surname" placeholder="Surname">
-                    <input type="text" name="address" id="address" placeholder="Address">
-                    <input type="submit" name="submit" value="Sign up">
-                     {% csrf_token %}
+                    </div>
+
+
                 </form>
+
+<script>
+    
+
+
+function sum(){
+
+    var salary1 = document.getElementById('salary').value || 0;
+    var salary2 = document.getElementById('salary1').value || 0;
+    var salary3 = document.getElementById('salary2').value || 0;
+    var salary4 = document.getElementById('salary3').value || 0;
+
+    var result = parseInt(salary) + parseInt(salary1) + parseInt(salary2) + parseInt(salary3);
+
+        document.getElementById('totalsalary').value = result;
+}
+
+
+</script>
 
                 <form class="logbox" action="psrform.html" method="post">
                     <h1>Login</h1>
@@ -67,27 +157,30 @@
                     <input type="password" name="password" id="password" placeholder="password">
                     <input type="submit" name="submit" value="Login">
                 </form>
-
-                <button>Explore</button>
                 
+                <div class="watch">
+
+                    <h1>It's your right to know</h1>
+                <button>Watch here</button>
+                
+               </div>
                
                 <div class="trailer">
                     <video src="{% static 'video/ayuda.mp4' %}" controls="true"></video>
                     <span class="close">&times;</span> <!--DITO NAGTART GUMANA SLIGHT-->
                 </div>
-       
-
    
  
   
        
 
-            </div>
+    </div>
+
 
       <!--START FOOTER----------------------------------------------------->
       <footer class="footer">
         <div class="footer-left">
-            <img src="{% static 'images/logo.png' %}">
+                  <img src="{% static 'images/logo.png' %}">
     
             <div class="socials">
                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -161,3 +254,4 @@
     
 </body>
 </html>
+{% endblock %}

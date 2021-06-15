@@ -1,0 +1,49 @@
+{% load static %}
+ <!DOCTYPE html>
+
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPS</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/psrformcss.css' %}">
+        <link rel="icon" href="{% static 'images/minilogo.png' %}" type="images/minilogo.png">
+        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+        <style>
+            .pictures{
+    width: 100%;
+  
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
+}
+
+
+        </style>
+    </head>
+    <body>
+ 
+          <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
+    
+            <div id="main">
+                <div class="announcement">
+                    <p id="welcome-bar">Welcome to the Official Page of Government Pandemic Subsidy Site!</p>
+                </div>
+                <div class="navbar">
+                <div class="logo">
+                    <a href="psrform.html"> <img src="{% static 'images/logo.png' %}" alt=""></a>
+            </div>
+            <nav>
+                
+                <ul>
+                   
+                    <a href="aboutus.html"><li>About us </li></a>
+                <a href="aboutus.html"><li>Inquiries</li></a>
+               
+              <!--   <a href="FAQ_PAGE.html"><li>Inquiries</li></a> -->
+                </ul>
+             </nav>
+        
+                 </div>
+
+            <hr>
+
+{% block content %} {% endblock %}

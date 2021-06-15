@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPS</title>
+        <link rel="stylesheet" type="text/css" href="css/subsidycss.css">
+        <link rel="icon" href="images/minilogo.png" type="images/minilogo.png">
+        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+        <style>
+
+            .page2{
+               background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("images/people.jpg");
+            }
+        </style>
+    </head>
+    <body>
+    <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
+    
+            <div id="main">
+                <div class="announcement">
+                    <p id="welcome-bar">Welcome to the Official Page of Government Pandemic Subsidy Site!</p>
+                </div>
+                <div class="navbar">
+                <div class="logo">
+                    <a href="HOME_PAGE.html"> <img src="images/logo.png" alt=""></a>
+            </div>
+            <nav>
+                
+                <ul>
+                    <a href="MENU_PAGE.html"><li>About us</li></a>
+                    <a href="ABOUT_PAGE.html"><li>Inquiries</li></a>
+
+                </ul>
+             </nav>
+        
+                 </div>
+                 <hr>
+<!-- END -->
+
+     
+                 <div class="page2">
+                     
+
+                 <a class="applicant" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                   Applicant Information
+                </a>
+                <a class="subsidy" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Subsidy
+                </a>
+                <a class="status" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Status
+                </a>
+
+                <a class="logout" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Logout
+                </a>
+
+              
+                       <div class="introduction">
+
+                        <div class="sub">
+                            
+                            <h2>Recipients</h2>
+                            <p>(insert head name)</p>
+                            <p>(inser fam mem2)</p>
+                            <p>(inser fam mem3)</p>
+                            <p>(inser fam mem4)</p><br>
+
+                           <h2>Subsidy to receive:</h2>
+                            <p>(insert totalmoney)</p>
+
+
+                        </div>
+                        
+                        <div class="receivingplace">
+                            <h2>Receiving Station</h2><br>
+                            <label for="cars">Choose your desired station:</label><br>
+
+                                    <select name="cars" id="cars">
+                                    <option value="volvo">Phase 1</option>
+                                    <option value="saab">Phase 2</option>
+                                    <option value="mercedes">Phase 3</option>
+                                    <option value="audi">Phase 4</option>
+                                    </select><br>
+                          <br>  <h2>Receiving Bank</h2><br>
+
+                          <label for="cars">Choose your desired bank:</label><br>
+
+                                    <select name="cars" id="cars">
+                                    <option value="volvo">LANDBANK</option>
+                                    <option value="saab">PNB</option>
+                                    <option value="mercedes">PALAWAN</option>
+                                    <option value="audi">CEBUANA LLUILLER</option>
+                                    </select><br>
+
+                    
+                        </div>
+
+                        <div class="qrcode">
+                            <h2>QR Code for Confirmation</h2>
+                            <p>NOTE:<br> (1)please enter information to generate qr code<br>
+                                        (2)Screenshot this QR Code and present to the station/bank
+                            </p>
+                            
+                            <input type="text" id="qrdata" onchange="generateQR()">
+                            <div id="qrcode"></div>
+                           
+
+
+
+                        </div>
+                 </div>
+                 </div>
+
+          
+                 
+
+
+
+<!-- FOOTER -->
+
+                 <footer class="footer">
+                    <div class="footer-left">
+                        <img src="images/logo.png">
+                
+                        <div class="socials">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <ul class="footer-right">
+                        <li>
+                            <h3>Socials</h3>
+                            
+                            <ul class="footer-box">
+                                <li><a href="https://www.facebook.com/blackcupcogeo/" target="_blank">Facebook</a></li>
+                                <li><a href="https://www.instagram.com/_rolianne/"target="_blank">Instagram</a></li>
+                                <li><a href="https://www.youtube.com/annemaestre"target="_blank">Youtube</a></li>
+                                
+                            </ul>
+                        </li>
+            
+                        <li class="features">
+                            <h3>Contact us</h3>
+                            
+                            <ul class="footer-box">
+                                <li><a href="mailto:blackcupcogeo@gmail.com" target="_blank">rolianne.maestre@gsfe.tupcavite.edu.ph</a></li>
+                                <li>0945 290 1920</li>
+                                
+                            </ul>
+                        </li>
+            
+                        <li>
+                            <h3>Address</h3>
+                            
+                            <ul class="footer-box">
+                                <li><a href="https://www.google.com/maps/place/Mabuhay+City+Subdivision/@14.3199002,120.9870772,17z/data" target="_blank">
+                                    Mabuhay City, Paliparan 3 Dasmarinas City Cavite, 4114</a></li>
+                                    <li><a href="https://www.google.com/maps/place/38+F.T.+Catapusan+Rd,+Alaza+Aldea,+Tanay,+1980+Rizal/@14.495869,121.2863773,17z/"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <div class="footer-bottom">
+                        <p>All Rights Reserved 2021</p>
+                    </div>
+                </footer>
+    </div>
+    </body>
+
+    
+    <script src="qrcode.min.js"></script>
+    <script>   
+    var qrdata = document.getElementById('qrdata');
+        var qrcode =  new QRCODE(document.getElementById('qrcode'));
+        function generateQR(){
+            var data = qrdata.value;
+
+         qrcode.makeCode(data);
+        }
+    </script>
+    </html>

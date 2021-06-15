@@ -26,7 +26,7 @@ SECRET_KEY = '&#we+qo+_fsjc!^0$%$teli@9lm29ivz)iu^$xrfg2i!i-ws2-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pandemicsubsidy.ph']
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition

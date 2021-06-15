@@ -2,14 +2,19 @@ from django.conf.urls import url
 from prac import views
 from django.conf.urls.static import static 
 from django.contrib import admin
+from django.urls import path, include
+
 
 
 urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^prac/', include('projectroli.urls')),
+	url(r'^accounts/', include('accounts.urls')),
  	url(r'^$', views.Main, name='mainpage'),
  	url(r'^prac/(\d+)/$', views.View, name='viewlist'),
  	url(r'^prac/newlist_url$', views.New, name='newlist'),
  	url(r'^prac/(\d+)/addItem$', views.addItem, name='additem'),
- 	url(r'^admin/', admin.site.urls),
+ 
  	]
 
 

@@ -1,32 +1,41 @@
 from django.shortcuts import render
-from prac.models import Psrsignup, Psrlogin, Familyinfo, Subsidyconfirmation, Receivingplacedate, Receivingbankpawnshop
+from prac.models import Psrsignup, Familyinfo, Subsidyconfirmation, Receivingplacedate, Receivingbankpawnshop, PSRStatus, Additionalassistance, Inquries
 from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 
 def Main(request):
-	# pendingname = pendingname.objects.create()
+
 	return render(request, 'psrform.html')
-		# ,{'pendingname':pending})
-	#return render(request, 'mainpage.html', {'form': ItemForm()})
+
+
 
 def New(request):
-	# newName = pendingname.objects.create()
 	pname = Psrsignup.objects.create(
 		firstname =request.POST['firstname'],
 		lastname = request.POST['surname'],
 		address = request.POST['address'],)
-		# age = request.POST['age'])
 
 	return redirect(f'/prac/{pname.id}/')
+
 	
 def View(request, pname):
 	pname = Psrsignup.objects.get(id=pname)
-	return render(request, 'psrlist.html', {'pname': pname})
+	return render(request, 'psrlist.html', {'pname': pname, })
+
 
 def addItem(request, pn):
 	pn = Psrsignup.objects.get(id=pn)
 	Item.objects.create(pname=pn,text=request.POST['surname'], address=request.POST['address'])
+
+
 	return redirect(f'/prac/{pn.id}/')
+
+
+def aboutus(request):
+
+	return render(request,'templates/aboutus.html')
 
 def manipulationofdata():
 
@@ -46,6 +55,57 @@ def manipulationofdata():
 #delete
 	res += '<br>Deleting an entry<br>'
 	nname.delete()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
