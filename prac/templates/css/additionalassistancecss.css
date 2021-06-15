@@ -151,6 +151,20 @@ nav ul li{
 .page2{
     height: 90vh;
 }
+.introduction{
+    background-color: white;
+    position: relative;
+    top:45px;
+    bottom: 30px;
+    width: 1230px;
+    height: 350px;
+    opacity: 0.5;
+    border: 15px;
+    padding: 50px;
+    margin: 20px;
+}
+
+
 .personalinformation{
     background-color: white;
     position: relative;
@@ -351,20 +365,22 @@ nav ul li{
 
 /* PAGEEE-------------------------------------- */
 
-.introduction{
-    background-color: white;
-    position: relative;
-    top:45px;
-    bottom: 30px;
-    width: 1230px;
-    height: 350px;
-    opacity: 0.5;
-    border: 15px;
-    padding: 50px;
-    margin: 20px;
+/* ASSISTANCE ------------------------------ */
+
+.add{
+    text-align: center;
+    border:0;
+    background:none;
+    margin: 3px auto;
+    text-align: center;
+    border: 2px solid #FBEEE6;
+    padding: 7px 5px;
+    width: 100px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
 }
-
-
 
 
 /* FOOTER--------------------------------------------------------- */

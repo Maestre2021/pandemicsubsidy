@@ -13,8 +13,9 @@ def New(request):
 		firstname =request.POST['firstname'],
 		lastname = request.POST['surname'],
 		address = request.POST['address'],
-		occupation = request.POST['occupation']
-		salary_head = request.POST['salary'],
+		salaryhead = request.POST['salary'],
+		occupationhead = request.POST['occupation'],
+
 		)
 
 	return redirect(f'/prac/{pname.id}/')

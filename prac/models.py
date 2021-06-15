@@ -6,7 +6,7 @@ class Psrsignup(models.Model):
 	firstname = models.CharField(max_length=50, default="", null=True)
 	lastname = models.CharField(max_length=50, default="", null=True)
 	address = models.TextField(default="")
-	occupation_head = models.CharField(max_length=50, default="")
+	occupationhead = models.CharField(max_length=50, default="")
 	salaryhead = models.IntegerField(default="")
 
 class Familyinfo(models.Model):
