@@ -1,8 +1,10 @@
-from django.urls import url
-from . import views 
+from django.contrib import admin
+from django.urls import path
+from user import views
+from django.contrib.auth.views import LogoutView,LoginView
+from django.urls import path,include
 
 urlpatterns = [
- 	url(r'^$', views.Main, name='mainpage'),
-	url(r'^$', views.register, name="register"),
-
-]
+    path('usersignup', views.devotee_signup_view,name='usersignup'),
+    path('devotee-dashboard', views.devotee_dashboard_view,name='devotee-dashboard'),
+    ]

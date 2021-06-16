@@ -1,57 +1,28 @@
-<!DOCTYPE html>
-<html lang=en>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>GPS</title>
-        <link rel="stylesheet" type="text/css" href="css/inquiriesandcommentscss.css">
-        <link rel="icon" href="images/minilogo.png" type="images/minilogo.png">
-        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
-        <style>
+{% extends 'navigation.html' %}
 
-            .page6{
-               background: white;
-            }
-        </style>
-    </head>
-    <body>
+{% load static %}
+{% block content %}
+
     <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
     
-            <div id="main">
-                <div class="announcement">
-                    <p id="welcome-bar">Welcome to the Official Page of Government Pandemic Subsidy Site!</p>
-                </div>
-                <div class="navbar">
-                <div class="logo">
-                    <a href="HOME_PAGE.html"> <img src="images/logo.png" alt=""></a>
-            </div>
-            <nav>
-                
-                <ul>
-                   
-                    <a href="MENU_PAGE.html"><li>About us</li></a>
-                    <a href="ABOUT_PAGE.html"><li>Inquiries</li></a>
-            
-                   
-                </ul>
-             </nav>
-        
-                 </div>
-                 <hr>
 <!-- END -->
 
      
                  <div class="page6">
                 
 
-                       <div class="introduction">
+        <script src="{% static 'js/psrformjs.js' %}"></script>
+                       <div class="introductioninquiries">
                            <br>
+
                         <h1>Your Voice matters</h1>
                         <p style="text-align: center;">If you have any suggestions, questions, and comment. Please leave it here.</p>
                         <br>
-                        <forms >
-                        <label for="name" class="name">Name</label><br>
-                        <input type="text" id="name" name="name" placeholder="Name"><br>
+                        <forms class="inquireandcomment" method="POST" action="" >
+                        <label for="nameinquires" class="name">Name</label><br>
+                        <input style="border-radius: 20px;border: 2px solid black;"type="text" id="nameinquiries" name="nameinquiries" placeholder="Name"><br>
+                        <label for="contactinquiries" class="contact">Contact</label><br>
+                        <input style="border-radius: 20px;border: 2px solid black;"type="text" id="contactinquiries" name="contactinquiries" placeholder="CONTACT NUMBER"><br>
                         <label for="message" class="message">Type of message</label><br>
                         
                         <select name="message" id="message">
@@ -63,62 +34,46 @@
                         </select>
                         
                         <h3>Compose your message here</h3>
-                        <textarea type="text" name="typemessage" id="typemessage"  cols="40" rows="13" ></textarea><br>
+                        <textarea style="border: 2px solid black;"type="text" name="typemessage" id="typemessage"  cols="40" rows="13" ></textarea><br>
+
+                            <input type="submit" value="submit" >                            
                         </forms>
                        </div>
                    
                  </div>
 
+<!--                
+
+                 <p id="demo"></p>
                  
+                 <script>
+                 function myFunction() {
+                   var txt;
+                   if (confirm("Press a button!")) {
+                     txt = "You pressed OK!";
+                   } else {
+                     txt = "You pressed Cancel!";
+                   }
+                   document.getElementById("demo").innerHTML = txt;
+                 }
+                 </script> -->
+                 <form method="POST" action='/prac/{{pn.id}}/addItem'>
 
 
-
-<!-- FOOTER -->
-
-                 <footer class="footer">
-                    <div class="footer-left">
-                        <img src="images/logo.png">
-                
-                        <div class="socials">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <ul class="footer-right">
-                        <li>
-                            <h3>Socials</h3>
-                            
-                            <ul class="footer-box">
-                                <li><a href="https://www.facebook.com/blackcupcogeo/" target="_blank">Facebook</a></li>
-                                <li><a href="https://www.instagram.com/_rolianne/"target="_blank">Instagram</a></li>
-                                <li><a href="https://www.youtube.com/annemaestre"target="_blank">Youtube</a></li>
-                                
-                            </ul>
-                        </li>
-            
-                        <li class="features">
-                            <h3>Contact us</h3>
-                            
-                            <ul class="footer-box">
-                                <li><a href="mailto:blackcupcogeo@gmail.com" target="_blank">rolianne.maestre@gsfe.tupcavite.edu.ph</a></li>
-                                <li>0945 290 1920</li>
-                                
-                            </ul>
-                        </li>
-            
-                        <li>
-                            <h3>Address</h3>
-                            
-                            <ul class="footer-box">
-                                <li><a href="https://www.google.com/maps/place/Mabuhay+City+Subdivision/@14.3199002,120.9870772,17z/data" target="_blank">
-                                    Mabuhay City, Paliparan 3 Dasmarinas City Cavite, 4114</a></li>
-                                    <li><a href="https://www.google.com/maps/place/38+F.T.+Catapusan+Rd,+Alaza+Aldea,+Tanay,+1980+Rizal/@14.495869,121.2863773,17z/"></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-            
-                    <div class="footer-bottom">
-                        <p>All Rights Reserved 2021</p>
-                    </div>
-                </footer>
+                    <table id="inqandcom">
+                        <tr>
+                            <th style="color:white">Applicant</th> 
+                            <th style="color:white">Status : Pending</th></tr>
+                        <tr>
+                            <th style="color:white">NAME</th>
+                            <th style="color:white">ADDRESS</th>
+                        </tr>
+                    
+                            {% for item in pn.item_set.all %}
+                        <tr>
+                            <td>{{ forloop.counter }}: {{ item.text }} </td>
+                            <td>{{ item.address }} </td> 
+                        </tr>
+                        {% endfor %}
+                    </table>
+    {% endblock %}

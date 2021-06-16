@@ -1,11 +1,17 @@
+{% extends 'navigation.html' %}
+
+{% load static %}
+{% block content %}
+
+
 <!DOCTYPE html>
 <html lang=en>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>GPS</title>
-        <link rel="stylesheet" type="text/css" href="css/aboutuscss.css">
-        <link rel="icon" href="images/minilogo.png" type="images/minilogo.png">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/aboutuscss.css' %">
+        <link rel="icon" href="images/minilogo.png" type="{% static 'images/minilogo.png' %}">
         <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
         <style>
 
@@ -17,27 +23,7 @@
     <body>
     <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
     
-            <div id="main">
-                <div class="announcement">
-                    <p id="welcome-bar">Welcome to the Official Page of Government Pandemic Subsidy Site!</p>
-                </div>
-                <div class="navbar">
-                <div class="logo">
-                    <a href="HOME_PAGE.html"> <img src="images/logo.png" alt=""></a>
-            </div>
-            <nav>
-                
-                <ul>
-                   
-                    <a href="MENU_PAGE.html"><li>About us</li></a>
-                    <a href="ABOUT_PAGE.html"><li>Inquiries</li></a>
-            
-                   
-                </ul>
-             </nav>
-        
-                 </div>
-                 <hr>
+  
 <!-- END -->
 
 
@@ -117,3 +103,4 @@
          
     
     </div>
+{% endblock %}

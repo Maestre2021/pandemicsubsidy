@@ -1,70 +1,54 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang=en>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>GPS</title>
-        <link rel="stylesheet" type="text/css" href="css/additionalassistancecss.css">
-        <link rel="icon" href="images/minilogo.png" type="images/minilogo.png">
+        <link rel="stylesheet" type="text/css" href="{% static 'additionalassistancecss.css' %}">
+        <link rel="icon" href="{% static 'images/minilogo.png' %}" type="images/minilogo.png">
         <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
         <style>
 
             .page2{
-               background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("images/people.jpg");
+               background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
             }
         </style>
     </head>
     <body>
     <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
-    
-            <div id="main">
-                <div class="announcement">
-                    <p id="welcome-bar">Welcome to the Official Page of Government Pandemic Subsidy Site!</p>
-                </div>
-                <div class="navbar">
-                <div class="logo">
-                    <a href="HOME_PAGE.html"> <img src="images/logo.png" alt=""></a>
-            </div>
-            <nav>
-                
-                <ul>
-                   
-                    <a href="MENU_PAGE.html"><li>About us</li></a>
-                    <a href="ABOUT_PAGE.html"><li>Inquiries</li></a>
-            
-                </ul>
-             </nav>
-        
-                 </div>
-                 <hr>
+
 <!-- END -->
 
      
                  <div class="page2">
                      
 
-                 <a class="applicant" href="#">
+                 <a class="applicant3" href="{% url 'Applicant' %}">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                    Applicant Information
                 </a>
-                <a class="subsidy" href="#">
+                <a class="subsidy3" href="{% url 'Subsidy' %}">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     Subsidy
                 </a>
-                <a class="status" href="#">
-                    <span></span>
+                <a class="status2" href="{% url 'Status' %}">
+                    <span></span> 
                     <span></span>
                     <span></span>
                     <span></span>
                     Status
                 </a>
-                <a class="assistance" href="#">
+                <a class="assistanceglow" href="{% url 'Assistance' %}">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -83,22 +67,24 @@
 
 
                        <div class="introduction">
-                       <h1>Additional Assistance</h1>
-                       <h2>Additional Assistance is an extended help for people in need.</h2>
+                           <div class="assist">
+                       <h1 style="text-align: center;">Additional Assistance</h1>
+                       <h2 style="text-align: center;">Additional Assistance is an extended help for people in need.</h2><br>
                                 <div class="add">
-                                    
-                                        <label for="assistancee">NAME:</label>
-                                        <input type="text" id="name" placeholder="Name"><br>
+                                    <h4>Hello, {{ pname.firstname.upper }} </h4>
+                                        <label for="assistancee"style="text-align: center;">Address:</label>
+                                        <input style="text-align: center;" type="text" id="add" placeholder="Address"><br>
 
-                                        <label for="assistancee1">ADDRESS:</label>
-                                        <input type="text" id="address" placeholder="Address"><br>
+                                        <label style="text-align: center;" for="assistancee1">CONTACT:</label>
+                                        <input style="text-align: center;" type="text" id="contact" placeholder="Contact"><br>
                                         
-                                        <label for="assistancee2">CONTACT:</label>
-                                        <input type="number" id="contact" placeholder="Contact"><br>
+                                        <label style="text-align: center;"for="assistancee2">AMOUT:</label>
+                                        <input style="text-align: center;" type="number" id="contact" placeholder="AMOUNT"><br>
+                                        <input style="text-align: center;" type="submit" id="assisbtn" value="Request">
 
                                 </div>
 
-
+                                </div>
 
                         
                        </div>
@@ -109,52 +95,4 @@
 
 
 
-<!-- FOOTER -->
-
-                 <footer class="footer">
-                    <div class="footer-left">
-                        <img src="images/logo.png">
-                
-                        <div class="socials">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <ul class="footer-right">
-                        <li>
-                            <h3>Socials</h3>
-                            
-                            <ul class="footer-box">
-                                <li><a href="https://www.facebook.com/blackcupcogeo/" target="_blank">Facebook</a></li>
-                                <li><a href="https://www.instagram.com/_rolianne/"target="_blank">Instagram</a></li>
-                                <li><a href="https://www.youtube.com/annemaestre"target="_blank">Youtube</a></li>
-                                
-                            </ul>
-                        </li>
-            
-                        <li class="features">
-                            <h3>Contact us</h3>
-                            
-                            <ul class="footer-box">
-                                <li><a href="mailto:blackcupcogeo@gmail.com" target="_blank">rolianne.maestre@gsfe.tupcavite.edu.ph</a></li>
-                                <li>0945 290 1920</li>
-                                
-                            </ul>
-                        </li>
-            
-                        <li>
-                            <h3>Address</h3>
-                            
-                            <ul class="footer-box">
-                                <li><a href="https://www.google.com/maps/place/Mabuhay+City+Subdivision/@14.3199002,120.9870772,17z/data" target="_blank">
-                                    Mabuhay City, Paliparan 3 Dasmarinas City Cavite, 4114</a></li>
-                                    <li><a href="https://www.google.com/maps/place/38+F.T.+Catapusan+Rd,+Alaza+Aldea,+Tanay,+1980+Rizal/@14.495869,121.2863773,17z/"></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-            
-                    <div class="footer-bottom">
-                        <p>All Rights Reserved 2021</p>
-                    </div>
-                </footer>
+{% endblock %}

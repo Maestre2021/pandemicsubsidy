@@ -1,73 +1,16 @@
 
-{% extends "navigation.html" %}
+{% extends 'navigation.html' %}
 
 {% load static %}
 {% block content %}
  
 
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/psrformcss.css' %}">
 
  
         <style>
-        .pictures{
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
-        }
-         .reg{
-            width:600px;
-            height: 600px;
-            padding: 20px;
-            position: absolute;
-            left:-5%;
-            bottom: 360px;
-            transform: translate(22%,55%);
-            background: #191919;
-        }
-
-
-        .reg h1{
-            color: white;
-            text-align: center;
-        }
-
-        .reg input[type="text"],.reg input[type = "password"],.reg input[type= "number"]{
-            border:0;
-            background:none;
-            margin: 3px auto;
-            text-align: center;
-            border: 2px solid #FBEEE6;
-            padding: 7px 5px;
-            width: 100px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
-        }
-
-        .reg input[type="submit"]{
-            border:0;
-            background:none;
-            display:block;
-            margin: 20px auto;
-            text-align: center;
-            border: 2px solid #F9E79F;
-            padding: 14px 10px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
-            cursor: pointer;
-        }
-
-        .reg input[type="submit"]:hover{
-            background: #F9E79F ;
-
-        
-        }
-        .log{
-               bottom: 350px;
-        }
+     
 
 </style>
 </head>
@@ -79,7 +22,7 @@
 
 
 
-    <div class="pictures">
+    <div class="backgroundreg">
             
                 
   <script src="{% static 'js/psrformjs.js' %}"></script>
@@ -125,7 +68,9 @@
                         <label for="sub" style="color:white;">Total subsidy</label>
                         <input style ="width: 175px;" type="number" name="expectedsubsidy" id="expectedsubsidy" placeholder="money to receive"required>
                         <p style="color:white; font-size: x-small;">One family will receive PHP 4,000 REGARDLESS of number of family member in the house.</p>
-
+                        <label for="image" style="color: white; text-align: center;">PROOF OF LEGIBILITY</label>
+                        <p style="color:white; font-size: x-small;">Upload an Image/File of your valid documents for proof</p>
+                        <input type="file" value="upload file/image">
                           <input type="submit" name="submit" value="Sign Up">
 
                     

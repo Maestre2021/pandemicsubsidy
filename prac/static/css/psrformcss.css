@@ -1,4 +1,4 @@
-{% load static %}
+
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 *{
@@ -90,37 +90,6 @@ nav ul li{
     }
 /*END NAVIGATION BAR-----------------------------------------------------*/
 
- /*START SEARCH BAR AND ICON----------------------------------------*/
- .container{
-    position:relative;
-    padding: 80px 50px;
-}
-
-.wrapper{
-    position: absolute;
-    top: 2.7%;
-    left: 70%;
-    transform: translate(-20%,-20%);
-}
-.input{
-    width: 400px;
-    border: 1px solid black;
-    background: transparent;
-    padding: 15px 30px;
-    border-radius: 50px;
-    color: black;
-    font-size: 18px;
-    outline: none;
-}
-::-webkit-input-placeholder{
-    color: gray;
-    text-transform: uppercase;
-    font-family: "Roboto", sans-serif;
-
-}
-
-
-/*END SEARCH BAR AND ICON--------------------------------------------*/
 
 /*START MENU----------------------------------------------------------*/
 .menupage{

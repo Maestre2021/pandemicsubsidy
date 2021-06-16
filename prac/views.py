@@ -8,6 +8,9 @@ from django.contrib.auth.forms import UserCreationForm
 def Main(request):
 	return render(request, 'psrform.html')
 
+def Home(request):
+	return render(request, 'psrform.html')
+
 def New(request):
 	pname = Psrsignup.objects.create(
 		firstname =request.POST['firstname'],
@@ -19,50 +22,74 @@ def New(request):
 		)
 
 	return redirect(f'/prac/{pname.id}/')
-
 	
 def View(request, pname):
 	pname = Psrsignup.objects.get(id=pname)
 	return render(request, 'psrlist.html', {'pname': pname, })
 
+def Subsidy(request):
+	return render(request, 'subsidy.html')
 
-def addItem(request, pn):
-	pn = Psrsignup.objects.get(id=pn)
-	Item.objects.create(pname=pn,text=request.POST['surname'], address=request.POST['address'])
+def Aboutus(request):
 
+	return render(request,'aboutus.html')
 
-	return redirect(f'/prac/{pn.id}/')
-
-
-def aboutus(request):
-
-	return render(request,'templates/aboutus.html')
-
-def manipulationofdata():
-
-	pname = pendingname(fname="Rabiya Mateo", faddress="Iloilo City", age="23", gender="Female")
-	pname.save()
-
-	objects = pendingname.objects.all()
-	rslt = 'Printing all entries in pendingname model : <br>'
-	for x in objects:
-		res+= x.fname+"<br"
+def Applicant(request):
+	return render(request,'psrlist.html')
 
 
-	nname = pendingname.objects.get(id="anne")
-	res += 'Printing One entry <b>'
-	res += nname.address
+def Status(request):
+	return render(request,'status.html')
 
-#delete
-	res += '<br>Deleting an entry<br>'
-	nname.delete()
 
+def Assistance(request):
+	return render(request,'additionalassistance.html')
+
+def Inquiries(request):
+	return render(request,'inquiriesandcomments.html')
+
+def AddInandcom(request):
+	text = Inquiries.objects.get(id = text)
+	text = Inquiries. objects.create(
+		iname = request.POST['nameinquiries'],
+		icontact = request.POST['contactinquiries'],
+		comments = request.POST['typemessage']
+		)
+
+	return redirect(f'prac/{text.id}')
 
 
 
+# def manipulationofdata():
+
+# 	pname = pendingname(fname="Rabiya Mateo", faddress="Iloilo City", age="23", gender="Female")
+# 	pname.save()
+
+# 	objects = pendingname.objects.all()
+# 	rslt = 'Printing all entries in pendingname model : <br>'
+# 	for x in objects:
+# 		res+= x.fname+"<br"
+
+
+# 	nname = pendingname.objects.get(id="anne")
+# 	res += 'Printing One entry <b>'
+# 	res += nname.address
+
+# #delete
+# 	res += '<br>Deleting an entry<br>'
+# 	nname.delete()
 
 
 
+
+
+
+# def addItem(request, pn):
+# 	pn = Psrsignup.objects.get(id=pn)
+# 	Item.objects.create(pname=pn,text=request.POST['surname'], address=request.POST['address'])
+
+
+# 	return redirect(f'/prac/{pn.id}/')
 
 
 
