@@ -11,6 +11,12 @@ def Main(request):
 def Home(request):
 	return render(request, 'psrform.html')
 
+def Subsidy(request):
+	return render(request, 'subsidypage.html')
+
+def Applicant(request):
+	return render(request,'applicantpage.html')
+
 def New(request):
 	pname = Psrsignup.objects.create(
 		firstname =request.POST['firstname'],
@@ -25,17 +31,12 @@ def New(request):
 	
 def View(request, pname):
 	pname = Psrsignup.objects.get(id=pname)
-	return render(request, 'psrlist.html', {'pname': pname, })
+	return render(request, 'psrlist.html', {'pname': pname })
 
-def Subsidy(request):
-	return render(request, 'subsidy.html')
 
 def Aboutus(request):
 
 	return render(request,'aboutus.html')
-
-def Applicant(request):
-	return render(request,'psrlist.html')
 
 
 def Status(request):
@@ -46,18 +47,29 @@ def Assistance(request):
 	return render(request,'additionalassistance.html')
 
 def Inquiries(request):
-	return render(request,'inquiriesandcomments.html')
 
-def AddInandcom(request):
-	text = Inquiries.objects.get(id = text)
-	text = Inquiries. objects.create(
-		iname = request.POST['nameinquiries'],
-		icontact = request.POST['contactinquiries'],
-		comments = request.POST['typemessage']
-		)
+	inquire = Inquiries.objects.create(
+			inquire = inquire, 
+			iname=request.POST['nameinquiries'], 
+			icontact=request.POST['contactinquiries'], 
+			rate=request.POST['typemessage'],
+			comments=request.POST['message'],
+			)
 
-	return redirect(f'prac/{text.id}')
+	return redirect(f'/prac/{inquire.id}/')
 
+def addinquire(request, inquirie):
+		inquire = Inquiries.objects.get(id=inquire)
+		return redirect(f'/prac/{inquire.id}/')
+
+def viewinquire(request, inquire):
+
+		inquire = Inquires.objects.get(id=inquire)
+		return render(request, 'inquiresandcomments.html', {'inquire': inquire, 'iname':'nameinquiries',
+			'icontact':'contactinquiries',
+			'rate': 'typemessage',
+			'comments':'message',
+			})
 
 
 # def manipulationofdata():

@@ -80,6 +80,13 @@ class Inquries(models.Model):
 		('5', 'excellent'),
 	}
 	rate = models.CharField(max_length=2, default="", choices =RATE_CHOICES, null=True)
+	TYPE_CHOICES = {
+	('Suggestion', 'Suggestion'),
+	('Question', 'Question'),
+	('Comment', 'Comment'),
+	}
+
+	typemessage = models.CharField(max_length=15, default="", choices = TYPE_CHOICES, null=True)
 
 
 

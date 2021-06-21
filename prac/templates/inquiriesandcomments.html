@@ -7,40 +7,48 @@
     
 <!-- END -->
 
-     
-                 <div class="page6">
-                
+     <br>
+      <div class="inquiriespage">
 
-        <script src="{% static 'js/psrformjs.js' %}"></script>
-                       <div class="introductioninquiries">
+           <div class="introductioninquiries">
                            <br>
 
                         <h1>Your Voice matters</h1>
                         <p style="text-align: center;">If you have any suggestions, questions, and comment. Please leave it here.</p>
                         <br>
-                        <forms class="inquireandcomment" method="POST" action="" >
-                        <label for="nameinquires" class="name">Name</label><br>
-                        <input style="border-radius: 20px;border: 2px solid black;"type="text" id="nameinquiries" name="nameinquiries" placeholder="Name"><br>
-                        <label for="contactinquiries" class="contact">Contact</label><br>
-                        <input style="border-radius: 20px;border: 2px solid black;"type="text" id="contactinquiries" name="contactinquiries" placeholder="CONTACT NUMBER"><br>
-                        <label for="message" class="message">Type of message</label><br>
+
+            <forms class="inquireandcomment" method="POST" action="/prac/{{inquire.id}}/addinquire" >
+            
+                <label for="nameinquires">Name</label><br>
+                        <input style="border-radius: 20px;border: 2px solid black; height: 25px; text-align: center;"type="text" id="nameinquiries" name="nameinquiries" placeholder="Name"><br>
+                
+                <label for="contactinquiries" class="contact">Contact</label><br>
+                        <input style="border-radius: 20px;border: 2px solid black;height: 25px; text-align: center;"type="text" id="contactinquiries" name="contactinquiries" placeholder="CONTACT NUMBER"><br>
                         
-                        <select name="message" id="message">
+                <label for="message" class="message">Type of message</label><br>
+                        
+                        <select name="typemessage" id="typemessage">
                         <option value="suggestion">Suggestion</option>
                         <option value="question">Question</option>
                         <option value="comment">Comment</option>
-
-          
                         </select>
                         
                         <h3>Compose your message here</h3>
-                        <textarea style="border: 2px solid black;"type="text" name="typemessage" id="typemessage"  cols="40" rows="13" ></textarea><br>
+                        <textarea style="border: 2px solid black;"type="text" name="message" id="message"  cols="40" rows="13" ></textarea><br>
 
-                            <input type="submit" value="submit" >                            
-                        </forms>
-                       </div>
+
+                        <a href="{% url 'Applicant' %}" class="inquiriesbtn">Submit</a>              
+
+            </forms>
+
+
+
+            <table>
+
+            </table>
+         </div>
                    
-                 </div>
+     </div>
 
 <!--                
 

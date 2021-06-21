@@ -20,6 +20,15 @@
         <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
         
         <style>
+
+
+.datetime{
+    background: black;
+    color: white;
+    padding: 10px;
+    font-size: 25px;
+    text-align: right;
+}
 /* REGISTER--------------------------------------------------------------------------------- */
 
        
@@ -94,10 +103,38 @@
     color: white;
 }
 
-button {
+.signupbtn{
+    position: absolute;
+    bottom: 70px;
+    border-radius: 20px;
+    background: yellow;
+    width: 100px;
+    padding: 12px 0;
+    text-align: center;
+}
+.signupbtn:hover{
+    background-color: lightyellow;
+}
+/* .signupbtn{
     width:180px;
     position: absolute;
-    left:60%;
+    left: 15%;
+    bottom: 10%;
+    color: #000;
+    font-size: 12px;
+    padding: 12px 0;
+    background: #fff;
+    border: 0;
+    border-radius:20px;
+    outline: none;
+    margin-bottom: 30px;
+    margin-left: 1088px;
+} */
+
+.watchhere{
+    width:180px;
+    position: absolute;
+    left: -15%;
     bottom: 10%;
     color: #000;
     font-size: 12px;
@@ -147,7 +184,7 @@ button {
     
     text-align: center;
     background: linear-gradient(rgba(0,0,0,.2),
-                rgba(0,0,0,.2)), url("images/drink1.jpg");
+                rgba(0,0,0,.2)), url("{% static 'images/pic1.jpg' %}");
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -246,7 +283,7 @@ button {
     
     text-align: center;
     background: linear-gradient(rgba(0,0,0,.2),
-                rgba(0,0,0,.2)), url("images/drink2.jpg");
+                rgba(0,0,0,.2)), url("{% static 'images/pic2.jpg' %}");
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -350,7 +387,7 @@ button {
     
     text-align: center;
     background: linear-gradient(rgba(0,0,0,.2),
-                rgba(0,0,0,.2)), url("images/drink12.jpg");
+                rgba(0,0,0,.2)), url("{% static 'images/pic3.jpg' %}");
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -429,16 +466,16 @@ button {
     transform: rotateY(-180deg);
 }
 
-/* FLIPCARD 4------------------------------------------------------------------------------------------*/
+/* /* FLIPCARD 4------------------------------------------------------------------------------------------ */
 
-/* INQUIRIES------------------------------------------------------------------------------------------ */
-.page6{
+ /* INQUIRIES------------------------------------------------------------------------------------------  */
+.inquiriespage{
     height: 90vh;
     background: white;
     overflow: hidden;
 }
 
-.page6 h1{
+.inquiriespage h1{
     text-align: center;
     opacity: 1.0;
 }
@@ -460,7 +497,7 @@ button {
     width: 500px;
     height:550px;
     position: absolute;
-    top: 150px;
+    top: 200px;
     left: 375px;
     border: 2px dashed black
 }
@@ -515,7 +552,7 @@ button {
   transition:all 300ms ease-in-out;
   transform:translate(-50%,-50%) scale(1);
 }
- 
+/*  
 button{
   position:absolute;
   top:80%;
@@ -528,465 +565,22 @@ button{
   text-transform:uppercase;
   font-weight:600;
   background:#fff;
-}
+} */
 
-
-/* PSRLIST----------------------------------------------------------------------------------------- */
-
-/* BUTTONS--------------------------------- */
-.applicant{
-    position: absolute;
-    top: 135px;
-    left:20px;
-    display: inline-block;
-    padding: 16px 30px;
-    color: #4D5656;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-    background: #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px #FBFCFC;
-}
-
-
-
-
-.subsidy{
-    position: absolute;
-    left: 340px;
-    top: 135px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: #4D5656;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.subsidy:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px  #F0F3F4, 0 0 40px  #FBFCFC, 0 0 80px  #FBFCFC;
-
-}
-
-.subsidy span{
-    display: block; 
-}
-.subsidy span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.subsidy:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-.status{
-    position: absolute;
-    top: 135px;
-    left: 475px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.status:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-
-}
-
-.status span{
-    display: block; 
-}
-.status span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.status:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-    
-}
-
-.assistance{
-    position: absolute;
-    top: 135px;
-    left: 45%;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.assistance:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-.assistance span{
-    display: block; 
-}
-.assistance span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.assistance:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-.logout{
-    position: absolute;
-    top: 135px;
-    left: 85%;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.logout:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-.logout span{
-    display: block; 
-}
-.logout span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.logout:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-button{
-    width:180px;
-
-    color: #000;
-    font-size: 12px;
-    padding: 12px 0;
-    background: #fff;
-    border: 0;
-    border-radius:20px;
-    outline: none;
-   
-}
-
-/* PAGE 2 */
-
-
-.introduction{
-    background-color: white;
-    position: relative;
-    top:45px;
-    bottom: 30px;
-    width: 1230px;
-    height: 350px;
-    opacity: 0.5;
-    border: 15px;
-    padding: 50px;
-    margin: 20px;
-}
-
-.introduction h1{
-    position: absolute;
-    opacity: 1;
-    left: 25px;
-    top:25px;
-}
-.personinformation{
-    position: absolute;
-    left: 20px;
-    top: 90px;
-    border: 2px solid black;
-    width: 150px;
-    padding: 5px;
-    border-radius: 20px;
-
-}
-.info{
-    position: absolute;
-    left: 40px;
-    top: 314px;
-    border: 2px solid black;
-    width: 300px;
-    height: 250px;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-
-.familyinformation{
-    position: absolute;
-    left: 412px;
-    top: 275px;
-    border: 2px solid black;
-    width: 140px;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-.faminfo{
-    position: absolute;
-    left: 411px;
-    top: 314px;
-    border: 2px solid black;
-    width: 300px;
-    height: 250px;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-.filee{
-    position: absolute;
-    left: 787px;
-    top: 275px;
-    border: 2px solid black;
-    width: 140px;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-.file{
-    position: absolute;
-    left: 787px;
-    top: 314px;
-    border: 2px solid black;
-    width: 300px;
-    height: 250px;
-    padding: 5px;
-    border-radius: 20px;
-    text-align: center;
-}
-
-/* SUBSIDY------------------------------------------------------------------- */
-
-.page3{
+/* SUBSIDY PAGE------------------------------------------------------- */
+.subsidypage{
+    background-image: url("{% static 'images/white.jpg' %}");
+    width: 100vh;
     height: 90vh;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
-}
-.personalinformation{
-    background-color: white;
-    position: relative;
-    top:45px;
-    bottom: 30px;
-    width: 300px;
-    height: 300px;
-    opacity: 0.5;
-    border: 15px;
-    padding: 50px;
-    margin: 20px;
 }
 
-
-.applicant2{
-    position: absolute;
-    top: 135px;
-    left:20px;
-    display: inline-block;
-    padding: 16px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-    
-
-}
-
-.applicant2:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-
-.applicant2 span{
-    display: block; 
-    
-}
-.applicant2 span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.applicant2:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-
-.subsidy2{
-    position: absolute;
-    left: 340px;
-    top: 135px;
-    display: inline-block;
-    padding: 16.5px 30px;
-    color: #4D5656;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px  #F0F3F4, 0 0 40px  #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-.status2{
-    position: absolute;
-    top: 135px;
-    left: 475px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.status2:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-
-}
-
-.status2 span{
-    display: block; 
-}
-.status2 span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.status2:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-    
-}
-
-.logout{
-    position: absolute;
-    top: 135px;
-    left: 85%;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.logout:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-.logout span{
-    display: block; 
-}
-.logout span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.logout:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-
-
-.introductionsubsidy{
-    background-color: white;
-    position: relative;
-    top:45px;
-    bottom: 30px;
-    width: 1230px;
-    height: 350px;
-    opacity: 0.5;
-    border: 15px;
-    padding: 50px;
-    margin: 20px;
-}
 .sub h2{
     text-align: center;
 }
 .sub{
         position: absolute;
         left: 40px;
-        top: 90px;
+        top: 265px;
         border: 2px solid black;
         width: 300px;
         height: 250px;
@@ -998,7 +592,7 @@ button{
 .receivingplace{
     position: absolute;
     left: 428px;
-    top: 90px;
+    top: 265px;
     border: 2px solid black;
     width: 300px;
     height: 250px;
@@ -1013,7 +607,7 @@ button{
 .qrcode{
     position: absolute;
     left: 815px;
-    top: 90px;
+    top: 265px;
     border: 2px solid black;
     width: 300px;
     height: 250px;
@@ -1030,487 +624,25 @@ button{
 }
 
 
-
-/* STATUS------------------------------------------ */
-.backgroundreg{
-    height: 110vh;
-}
-.personalinformation{
-    background-color: white;
-    position: relative;
-    top:45px;
-    bottom: 30px;
-    width: 300px;
-    height: 300px;
-    opacity: 0.5;
-    border: 15px;
-    padding: 50px;
-    margin: 20px;
-}
-
-
-.applicant3{
+.subsidybtn{
     position: absolute;
-    top: 135px;
-    left:20px;
-    display: inline-block;
-    padding: 16px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-    
-
-}
-
-.applicant3:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-
-
-
-.subsidy3{
-    position: absolute;
-    left: 340px;
-    top: 135px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.subsidy3:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px  #F0F3F4, 0 0 40px  #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-.subsidy3 span{
-    display: block; 
-}
-.subsidy3 span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.subsidy3:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-.status3{
-    position: absolute;
-    top: 135px;
-    left: 475px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: #4D5656;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-/* .status:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-    transition-delay: 1s;
-} */
-
-.status3 span{
-    display: block; 
-}
-.status3 span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.status3:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-/* PAGEEE-------------------------------------- */
-
-.introduction{
-    background-color: white;
-    position: relative;
-    top:45px;
-    bottom: 30px;
-    width: 1230px;
-    height: 350px;
-    opacity: 0.5;
-    border: 15px;
-    padding: 50px;
-    margin: 20px;
-}
-
-.name{
-    position: absolute;
-    left: 20px;
-    top: 30px;
-    border: 2px solid black;
-    width: 140px;
-    padding: 5px;
+    bottom: 70px;
+    left: 570px;
     border-radius: 20px;
-
-}
-
-.address{
-    position: absolute;
-    left: 200px;
-    top: 30px;
-    border: 2px solid black;
-    width: 140px;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-
-.registered{
-    position: absolute;
-    left: 400px;
-    top: 30px;
-    border: 2px solid black;
-    width: 140px;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-.statuss{
-    position: absolute;
-    left: 600px;
-    top: 30px;
-    border: 2px solid black;
-    width: 140px;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-.logout{
-    position: absolute;
-    top: 135px;
-    left: 85%;
-    display: inline-block;
-    padding: 15px 30px;
+    background: #65321B;
     color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
+    width: 100px;
+    padding: 12px 0;
+    text-align: center;
+}
+.subsidybtn:hover{
+    background-color: #995031;
 }
 
-.logout:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-.logout span{
-    display: block; 
-}
-.logout span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.logout:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-
-/* ADDITIONAL ASSISTANCE -------------------------------------------------------- */
-
-.introduction{
-    background-color: white;
-    position: relative;
-    top:45px;
-    bottom: 30px;
-    width: 1230px;
-    height: 350px;
-    opacity: 0.5;
-    border: 15px;
-    padding: 50px;
-    margin: 20px;
-}
-
-.assist{
-    text-align:center;
-}
-
-
-.personalinformation{
-    background-color: white;
-    position: relative;
-    top:45px;
-    bottom: 30px;
-    width: 300px;
-    height: 300px;
-    opacity: 0.5;
-    border: 15px;
-    padding: 50px;
-    margin: 20px;
-}
-
-
-.applicant{
-    position: absolute;
-    top: 135px;
-    left:20px;
-    display: inline-block;
-    padding: 16px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-    
-
-}
-
-.applicant:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
+ </style>
 
 
 
-
-.subsidy{
-    position: absolute;
-    left: 340px;
-    top: 135px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.subsidy:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px  #F0F3F4, 0 0 40px  #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-.subsidy span{
-    display: block; 
-}
-.subsidy span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.subsidy:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-.status{
-    position: absolute;
-    top: 135px;
-    left: 475px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-
-}
-
-.status:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-    /* transition-delay: 1s; */
-}
-
-.status span{
-    display: block; 
-}
-.status span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.status:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-
-.assistance{
-    position: absolute;
-    top: 135px;
-    left: 609px;
-    display: inline-block;
-    padding: 15px 30px;
-    color: #4D5656;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-.assistance:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-    /* transition-delay: 1s; */
-}
-
-.assistance span{
-    display: block; 
-}
-.assistance span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.assistance:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-
-.assistanceglow{
-    position: absolute;
-    top: 135px;
-    left: 45%;
-    display: inline-block;
-    padding: 15px 30px;
-    color: #4D5656;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-/* 
-.assistanceglow:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-} */
-
-.assistanceglow span{
-    display: block; 
-}
-.assistanceglow span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.assistanceglow:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-.logout{
-    position: absolute;
-    top: 135px;
-    left: 84%;
-    display: inline-block;
-    padding: 15px 30px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 14px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-
-.logout:hover{
-    color: #4D5656;
-    background:  #F0F3F4;
-    box-shadow: 0 0 10px #F0F3F4, 0 0 40px #FBFCFC, 0 0 80px  #FBFCFC;
-}
-
-.logout span{
-    display: block; 
-}
-.logout span:nth-child(1)
-{
-    top: 0;
-    left:-100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent,#F0F3F4);
-}
-.logout:hover span:nth-child(1)
-{
-    left: 100%;
-    transition: 1s;
-}
-
-
-
-        </style>
     </head>
     <body>
 
@@ -1549,6 +681,28 @@ button{
                  </div>
 
             <hr>
+            <div class="datetime">
+
+            <script type="text/javascript"> 
+                function display_c(){
+                var refresh=1000; // Refresh rate in milli seconds
+                mytime=setTimeout('display_ct()',refresh)
+                }
+                
+                function display_ct() {
+                        var x = new Date()
+                        var x1=x.toUTCString();// changing the display to UTC string
+                        document.getElementById('ct').innerHTML = x1;
+                        tt=display_c();
+                        }
+                </script>
+                
+                
+                <body onload=display_ct();>
+                <span id='ct' ></span>
+
+                </div> <br>
+
 
 {% block content %} {% endblock %}
 
