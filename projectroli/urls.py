@@ -1,26 +1,26 @@
-
-from django.conf.urls import url
-from prac import views
-from django.conf.urls.static import static 
 from django.contrib import admin
 from django.urls import path, include
 
-
-
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
- 	url(r'^$', views.Main, name='mainpage'),
- 	url(r'^prac/newlist_url$', views.New, name='newlist'),
-    url(r'^prac/(\d+)/$', views.View, name='viewlist'),
-    url(r'^prac/subsidy', views.Subsidy, name='Subsidy'),
-    url(r'^prac/status', views.Status, name='Status'),
-    url(r'^prac/applicant', views.Applicant, name='Applicant'),
-    url(r'^prac/aboutus', views.Aboutus, name='Aboutus'),
-    url(r'^prac/inquiries', views.Inquiries, name='Inquiries'),
-    url(r'^prac/assistance', views.Assistance, name='Assistance'),
-    url(r'^prac/home', views.Main, name='main'),
+    path('admin/', admin.site.urls),
+    path('', include('prac.urls')),
+
+]
+
+# urlpatterns = [
+#     url(r'^admin/', admin.site.urls),
+#  	url(r'^$', views.Main, name='mainpage'),
+#  	url(r'^prac/newlist_url$', views.New, name='newlist'),
+#     url(r'^prac/(\d+)/$', views.View, name='viewlist'),
+#     url(r'^prac/subsidy', views.Subsidy, name='Subsidy'),
+#     url(r'^prac/status', views.Status, name='Status'),
+#     url(r'^prac/applicant', views.Applicant, name='Applicant'),
+#     url(r'^prac/aboutus', views.Aboutus, name='Aboutus'),
+#     url(r'^prac/inquiries', views.Inquiries, name='Inquiries'),
+#     url(r'^prac/assistance', views.Assistance, name='Assistance'),
+#     url(r'^prac/home', views.Main, name='main'),
  
- 	]
+#  	]
 
 
 """anneproject URL Configuration

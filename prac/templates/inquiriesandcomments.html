@@ -17,7 +17,8 @@
                         <p style="text-align: center;">If you have any suggestions, questions, and comment. Please leave it here.</p>
                         <br>
 
-            <forms class="inquireandcomment" method="POST" action="/prac/{{inquire.id}}/addinquire" >
+            <form class="inquireandcomment" method="POST" action="Inquire" >
+                {% csrf_token %}
             
                 <label for="nameinquires">Name</label><br>
                         <input style="border-radius: 20px;border: 2px solid black; height: 25px; text-align: center;"type="text" id="nameinquiries" name="nameinquiries" placeholder="Name"><br>
@@ -31,57 +32,55 @@
                         <option value="suggestion">Suggestion</option>
                         <option value="question">Question</option>
                         <option value="comment">Comment</option>
+                     
                         </select>
                         
                         <h3>Compose your message here</h3>
                         <textarea style="border: 2px solid black;"type="text" name="message" id="message"  cols="40" rows="13" ></textarea><br>
 
+                        <p>Please rate your experience! 1 being the lowest and 5 being the excellent</p>
+                        <select name="rate" id="rate">
+                            <option value="Poor">Poor</option>
+                            <option value="Weak">Weak</option>
+                            <option value="Good">Good</option>
+                            <option value="Very Good">Very Good</option>
+                            <option value="Excellent">Excellent</option>
+                            </select>
+                            <input type="submit" class="inquiriesbtn" value="submit">
+                     
 
-                        <a href="{% url 'Applicant' %}" class="inquiriesbtn">Submit</a>              
 
             </forms>
 
-
-
-            <table>
-
-            </table>
+   
          </div>
+
+         <table class="inquiretable">
+             
+            <tr>
+                <th>Name</th>
+                <th>Type of message</th>
+                <th>Message</th>
+                <th>Rate</th>
+            </tr>
+
+
+            <tr>
+                
+            {% for comments in inq %}
+              <td> {{ forloop.counter }}: {{ comments.iname }}</td>
+              <td> {{ comments.typemessage }}</td>
+              <td> {{ comments.comments }} </td>
+              <td> {{ comments.rate }}</td>
+           
+              
+            </tr>
+            {% endfor %}
+
+
+    </table>
                    
      </div>
 
-<!--                
 
-                 <p id="demo"></p>
-                 
-                 <script>
-                 function myFunction() {
-                   var txt;
-                   if (confirm("Press a button!")) {
-                     txt = "You pressed OK!";
-                   } else {
-                     txt = "You pressed Cancel!";
-                   }
-                   document.getElementById("demo").innerHTML = txt;
-                 }
-                 </script> -->
-                 <form method="POST" action='/prac/{{pn.id}}/addItem'>
-
-
-                    <table id="inqandcom">
-                        <tr>
-                            <th style="color:white">Applicant</th> 
-                            <th style="color:white">Status : Pending</th></tr>
-                        <tr>
-                            <th style="color:white">NAME</th>
-                            <th style="color:white">ADDRESS</th>
-                        </tr>
-                    
-                            {% for item in pn.item_set.all %}
-                        <tr>
-                            <td>{{ forloop.counter }}: {{ item.text }} </td>
-                            <td>{{ item.address }} </td> 
-                        </tr>
-                        {% endfor %}
-                    </table>
     {% endblock %}

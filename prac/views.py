@@ -1,95 +1,284 @@
-from django.shortcuts import render
-from prac.models import Psrsignup, Familyinfo, Subsidyconfirmation, Receivingplacedate, Receivingbankpawnshop, PSRStatus, Additionalassistance, Inquries
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from prac.models import Psrsignup, Familyinfo, Subsidyconfirmation, Receivingplacedate, Receivingbankpawnshop, Inquries
+# from .forms import PlaceForm
+
 
 
 def Main(request):
 	return render(request, 'psrform.html')
 
-def Home(request):
-	return render(request, 'psrform.html')
 
-def Subsidy(request):
-	return render(request, 'subsidypage.html')
-
-def Applicant(request):
-	return render(request,'applicantpage.html')
-
-def New(request):
-	pname = Psrsignup.objects.create(
-		firstname =request.POST['firstname'],
-		lastname = request.POST['surname'],
+def Mainget(request ):
+	pnames = Psrsignup.objects.create(
+		completename =request.POST['completename'],
 		address = request.POST['address'],
 		salaryhead = request.POST['salary'],
 		occupationhead = request.POST['occupation'],
-
 		)
 
-	return redirect(f'/prac/{pname.id}/')
-	
-def View(request, pname):
-	pname = Psrsignup.objects.get(id=pname)
-	return render(request, 'psrlist.html', {'pname': pname })
+	familys = Familyinfo.objects.create(
+		familyname1 = request.POST['Fullname1'],
+		familyname2 = request.POST['Fullname2'],
+		familyname3 = request.POST['Fullname3'],
 
+		occupation1 = request.POST['occupation1'],
+		occupation2 = request.POST['occupation2'],
+		occupation3 = request.POST['occupation3'],
+
+
+		salary1 = request.POST['salary1'],
+		salary2 = request.POST['salary2'],
+		salary3 = request.POST['salary3'],
+		totalsalary = request.POST['totalsalary'],
+		)
+
+	return redirect('Subsidy')
+	return render(request, 'subsidypage.html')
+
+def Subsidy(request):
+	# pname = Psrsignup.objects.filter()
+	# family = Familyinfo.objects.all()
+
+
+	# context = {'pname':pname , 'family':family }
+	return render(request, 'subsidypage.html')
+
+def Subsidyget(request):
+
+	totals = Subsidyconfirmation.objects.create(
+		subsidy = request.POST['expectedsubsidy'],
+		contact = request.POST['number'],
+
+		)	
+
+	stations = Receivingplacedate.objects.create(
+		place = request.POST['station'],
+		date = request.POST['stationdate'],
+		time = request.POST['stationtime'],
+
+		)
+	banks = Receivingbankpawnshop.objects.create(
+		bank_pawnshop = request.POST['banks'],
+		date = request.POST['bankdate'],
+		time = request.POST['banktime'],
+		)
+
+
+	return redirect('Status')
+	return render(request, 'subsidypage.html')
+
+
+
+
+
+def Status(request):
+	pname = Psrsignup.objects.last
+	total = Subsidyconfirmation.objects.last
+	station = Receivingplacedate.objects.last
+	bank = Receivingbankpawnshop.objects.last
+	family = Familyinfo.objects.last
+
+	context = {'pname':pname, 'family': family,'station':station, 'bank':bank, 'total': total}
+	return render(request, 'statuspage.html', context)
+
+def Applicant(request):
+
+	return render(request,'applicantpage.html')
 
 def Aboutus(request):
 
 	return render(request,'aboutus.html')
 
 
-def Status(request):
-	return render(request,'status.html')
+def Inquiriesandco(request):
+	return render(request,'inquiriesandcomments.html')
 
 
-def Assistance(request):
-	return render(request,'additionalassistance.html')
+
+def Inquire(request):
+
+	inq = Inquries.objects.create(
+		iname = request.POST['nameinquiries'],
+		icontact = request.POST['contactinquiries'],
+		typemessage = request.POST['typemessage'],
+		comments = request.POST['message'],
+		rate = request.POST['rate'],
+		)
+
+	return redirect('Inquiries')
+	return render(request, 'inquiriesandcomments.html')
 
 def Inquiries(request):
 
-	inquire = Inquiries.objects.create(
-			inquire = inquire, 
-			iname=request.POST['nameinquiries'], 
-			icontact=request.POST['contactinquiries'], 
-			rate=request.POST['typemessage'],
-			comments=request.POST['message'],
-			)
 
-	return redirect(f'/prac/{inquire.id}/')
+	inq = Inquries.objects.all()
 
-def addinquire(request, inquirie):
-		inquire = Inquiries.objects.get(id=inquire)
-		return redirect(f'/prac/{inquire.id}/')
+	return render(request,'inquiriesandcomments.html', {'inq': inq})
 
-def viewinquire(request, inquire):
 
-		inquire = Inquires.objects.get(id=inquire)
-		return render(request, 'inquiresandcomments.html', {'inquire': inquire, 'iname':'nameinquiries',
-			'icontact':'contactinquiries',
-			'rate': 'typemessage',
-			'comments':'message',
-			})
+
+
+
+
+
+
+
+
+def Home(request):
+	return render(request, 'psrform.html')
+
+
+
+def EditPlace(request, id):
+	station = Receivingplacedate.objects.get(id=id)
+	context = {'station':station}
+	return render(request, 'editplace.html', context)
+
+
+def UpdatePlace(request, id):
+	station = Receivingplacedate.objects.get(id=id)
+	station.place = request.POST['station']
+	station.time = request.POST['stationtime']
+	station.date = request.POST['stationdate']
+	station.save ()
+	return redirect('Status')
+
+def DeletePlace(request, id):
+	station = Receivingplacedate.objects.get(id=id)
+	station.delete()
+	return redirect('Status')
+
+
+
+
+def EditBank(request, id):
+	bank = Receivingbankpawnshop.objects.get(id=id)
+	context = {'bank':bank}
+	return render(request, 'editbank.html', context)
+
+
+def UpdateBank(request, id):
+	bank = Receivingbankpawnshop.objects.get(id=id)
+	bank.bank_pawnshop = request.POST['banks']
+	bank.time = request.POST['banktime']
+	bank.date = request.POST['bankdate']
+	bank.save()
+	return redirect('Status')
+
+def DeleteBank(request, id):
+	bank = Receivingbankpawnshop.objects.get(id=id)
+	bank.delete()
+	return redirect('Status')
+
+
+
+
+
+
+
+def EditInq(request, id):
+	Inqs = Inquries.objects.get(id=id)
+	context = {'Inqs':Inqs}
+	return render(request, 'editinq.html', context)
+
+
+def UpdateInq(request, id):
+	Inqs = Inquries.objects.get(id=id)
+	Inqs.iname = request.POST['nameinquiries']
+	Inqs.typemessage = request.POST['contactinquiries']
+	Inqs.comments = request.POST['typemessage']
+	Inqs.rate = request.POST['rate']
+
+	Inqs.save()
+	return redirect('Inquiries')
+
+def DeleteInq(request, id):
+	Inqs = Inquries.objects.get(id=id)
+	Inqs.delete()
+	return redirect('Inquiries')
 
 
 # def manipulationofdata():
 
-# 	pname = pendingname(fname="Rabiya Mateo", faddress="Iloilo City", age="23", gender="Female")
+# 	pname = Psrsignup(completename="Rabiya Mateo", address="Iloilo City", occupationhead="Advocate", salaryhead="15 000")
 # 	pname.save()
 
+# 	#readall
 # 	objects = pendingname.objects.all()
-# 	rslt = 'Printing all entries in pendingname model : <br>'
+# 	rslt = 'Printing all entries in Psrsignup model : <br>'
 # 	for x in objects:
-# 		res+= x.fname+"<br"
+# 		res+= x.completename+"<br"
 
-
-# 	nname = pendingname.objects.get(id="anne")
+# 	#readspecific
+# 	pname = Psrsignup.objects.get(id="pname")
 # 	res += 'Printing One entry <b>'
-# 	res += nname.address
+# 	res += pname.address
 
-# #delete
+# 	#delete
 # 	res += '<br>Deleting an entry<br>'
-# 	nname.delete()
+# 	pname.delete()
+
+# 	#update
+
+
+
+
+# # def Assistance(request):
+# # 	return render(request,'additionalassistance.html')
+
+# # def Assistanceget(request):
+# # 	assist = Additionalassistance.objects.create(
+# 		aaname = request.POST['appname'],
+# 		aaaddress = request.POST['appaddress'],
+# 		contact = request.POST['appcontact'],
+# 		loan = request.POST['apploan'],
+
+# 		)
+# 	return redirect('Assisting')
+# 	return render(request, 'additionalassistance.html')
+
+# def Assisting(request):
+
+# 	assist = Additionalassistance.objects.all()
+
+# 	return render(request,'additionalassistance.html', {'assist': assist})
+
+# def New(request):
+# 	pname = Psrsignup.objects.create(
+# 		firstname =request.POST['firstname'],
+# 		lastname = request.POST['surname'],
+# 		address = request.POST['address'],
+# 		salaryhead = request.POST['salary'],
+# 		occupationhead = request.POST['occupation'],
+
+# 		)
+
+# 	return redirect(f'/prac/{pname.id}/')
+
+# 	inquire = Inquiries.objects.create(
+# 			inquire = inquire, 
+# 			iname=request.POST['nameinquiries'], 
+# 			icontact=request.POST['contactinquiries'], 
+# 			rate=request.POST['typemessage'],
+# 			comments=request.POST['message'],
+# 			)
+
+# 	return redirect(f'/prac/{inquire.id}/')
+
+# def addinquire(request, inquirie):
+# 		inquire = Inquiries.objects.get(id=inquire)
+# 		return redirect(f'/prac/{inquire.id}/')
+
+# def viewinquire(request, inquire):
+
+# 		inquire = Inquires.objects.get(id=inquire)
+# 		return render(request, 'inquiresandcomments.html', {'inquire': inquire, 'iname':'nameinquiries',
+# 			'icontact':'contactinquiries',
+# 			'rate': 'typemessage',
+# 			'comments':'message',
+# 			})
+
+
 
 
 

@@ -27,48 +27,48 @@
                 
   <script src="{% static 'js/psrformjs.js' %}"></script>
     
-  <form class="registration" method="POST" action="prac/newlist_url">
+  <form class="registration" method="POST" action="Mainget">
+
                     {% csrf_token %}
                     <div class="reg">
                         <h1>Registration</h1>
                         <p style="color: white;">Personal Information</p>
 
-                            <input type="text" name="firstname" id="firstname" placeholder="First name"required>
-                            <input type="text" name="surname" id="surname" placeholder="Surname"required> 
-                            <input type="text" name="occupation" id="occupation" placeholder="Occupation"required>
-                            <input type="number" name="salary" id="salary" placeholder="Salary" onkeyup="sum()"required><br>
+                            <input type="text" name="completename" id="completename" placeholder="Applicant's Name">
+                            <input type="text" name="occupation" id="occupation" placeholder="Occupation">
+                            <input type="number" name="salary" id="salary" placeholder="Salary" onkeyup="sum()"><br>
 
-                            <input type="text" name="address" id="address" placeholder="Address" style ="width: 455px;"required><br>
+                            <input type="text" name="address" id="address" placeholder="Address" style ="width: 455px;"><br>
 
             
                         <p style="color: white;">Family Information</p>
 
-                            <input style ="width: 215px;" type="text" name="Fullname1" id="Fullname1" placeholder="Fullname (SN GN MI)" required>
-                            <input type="text" name="occupation1" id="occupation1" placeholder="Occupation"required> 
-                            <input type="number" name="salary1" id="salary1" placeholder="Salary"onkeyup="sum()" required"><br>
+                            <input style ="width: 215px;" type="text" name="Fullname1" id="Fullname1" placeholder="Fullname (SN GN MI)" >
+                            <input type="text" name="occupation1" id="occupation1" placeholder="Occupation"> 
+                            <input type="number" name="salary1" id="salary1" placeholder="Salary"onkeyup="sum()" ><br>
 
-                            <input style ="width: 215px;" type="text" name="Fullname2" id="Fullname2" placeholder="Fullname (SN GN MI)"required>
-                            <input type="text" name="occupation2" id="occupation2" placeholder="Occupation"required> 
-                            <input type="number" name="salary2" id="salary2" placeholder="Salary"onkeyup="sum()"required><br>
+                            <input style ="width: 215px;" type="text" name="Fullname2" id="Fullname2" placeholder="Fullname (SN GN MI)">
+                            <input type="text" name="occupation2" id="occupation2" placeholder="Occupation"> 
+                            <input type="number" name="salary2" id="salary2" placeholder="Salary"onkeyup="sum()"><br>
 
-                            <input style ="width: 215px;" type="text" name="Fullname3" id="Fullname3" placeholder="Fullname (SN GN MI)"required>
-                            <input type="text" name="occupation3" id="occupation3" placeholder="Occupation"required> 
-                            <input type="number" name="salary3" id="salary3" placeholder="Salary"onkeyup="sum()" required><br>
+                            <input style ="width: 215px;" type="text" name="Fullname3" id="Fullname3" placeholder="Fullname (SN GN MI)">
+                            <input type="text" name="occupation3" id="occupation3" placeholder="Occupation"> 
+                            <input type="number" name="salary3" id="salary3" placeholder="Salary"onkeyup="sum()" ><br>
                         <p style="color:white; font-size: x-small;"><b>NOTE:</b><br>(1) Only 4 members of the family (including the head of the family) will be included in the subsidy.<br>
                                         (2) Please put 'none' if a family member does not have occupation.<br>
                                         (3) Please put number zero (0) id a family member does not have salary.</b></p><br>
                      
                     
                          <label for="famsal" style="color:white;">Family Monthly Salary</label>
-                            <input style ="width: 175px;" type="number" name="totalsalary" id="totalsalary" placeholder="Total Salary"required><br>
+                            <input style ="width: 175px;" type="number" name="totalsalary" id="totalsalary" placeholder="Total Salary" readonly><br>
                         
-                        <label for="sub" style="color:white;">Total subsidy</label>
-                            <input style ="width: 175px;" type="number" name="expectedsubsidy" id="expectedsubsidy" placeholder="money to receive"required>
-                            <p style="color:white; font-size: x-small;">One family will receive PHP 4,000 REGARDLESS of number of family member in the house.</p>
+                        
                         <label for="image" style="color: white; text-align: center;">PROOF OF LEGIBILITY</label>
                             <p style="color:white; font-size: x-small;">Upload an Image/File of your valid documents for proof</p>
-                            <input type="file" value="upload file/image">
-                            <a href="{% url 'Subsidy' %}" class="signupbtn">Sign Up</a>
+                            <input name ="image1" type="file" name="img" id="img" value="upload file/image">
+
+                            <input type="submit" class="signupbtn">
+                            <!-- <a href="{% url 'Subsidy' %}" class="signupbtn">Sign Up</a> -->
 
                     
                           <script>
@@ -94,15 +94,10 @@
 
                 </form>
            
+           
 
 
-                <!-- <form class="logbox" action="psrform.html" method="post">
-                    <h1>Login</h1>
-                    <input type="text" name="username" id="username" placeholder="username">
-                    <input type="password" name="password" id="password" placeholder="password">
-                    <input type="submit" name="submit" value="Login">
-                </form>
-                 -->
+            
                 <div class="watch">
 
                     <h1>It's your right to know</h1>

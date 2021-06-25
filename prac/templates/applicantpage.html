@@ -3,103 +3,144 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" href=
-"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
   
 <style>
-    .qr-code {
-      max-width: 200px;
-      margin: 10px;
-    }
+    
+    	/* CSS comes here */
+			
+			input {
+              
+			    padding:5px;
+			    background-color:transparent;
+			    border:none;
+			    border-bottom:solid 4px #8c52ff;
+			    width:250px;
+			    font-size:16px;
+                left: 50px;
+			}
+			
+			.qr-btn {
+			    background-color:#8c52ff;
+			    padding:10px;
+			    color:white;
+			    cursor:pointer;
+                left: 50%;
+                bottom: 5px;
+             
+			}
+            #qr-text{
+                position: absolute;
+                left: 55%;
+                top: 47%;
+            }
+            #qr-code{
+                position: absolute;
+                left: 55%;
+                top: 56%;
+            }
+            #qr-result{
+                position: absolute;
+                left: 55%;
+                top: 52%;
+            }
+            h3{
+             position: absolute;
+             left:55%;
+            }
+            .print{
+                position: absolute;
+                align-items: center;
+                left: 20%;
+                bottom: 1px;
+                background: gray;
+                color: white;
+            }
   </style>
   
-  <title>QR Code Generator</title>
+
 </head>
   
 <body>
 
 <div class="Applicantpage">
-    
 
-    <div class="qrgenerate">
+    <p class="instruction"><b>INSTRUCTIONS</b><br>
+        1. Please insert your FULLNAME<br>
+        2. Generate the Qr-Code<br>
+        3. Click print and save the page.<br>
+    <i>Show this print in Station/Bank of your choice</i></p>
 
-          <div class="container-fluid">
-            <div class="text-center">
-          
-              <!-- Get a Placeholder image initially,
-               this will change according to the
-               data entered later -->
-              <img src=
-        "https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
-                class="qr-code img-thumbnail img-responsive" />
-            </div>
-          
-            <div class="form-horizontal">
-              <div class="form-group">
-                <label class="control-label col-sm-2"
-                  for="content">
-                  Content:
-                </label>
-                <div class="col-sm-10">
-          
-                  <!-- Input box to enter the 
-                      required data -->
-                  <input type="text" size="60" 
-                    maxlength="15" class="form-control"
-                    id="content" placeholder="Enter content" />
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-          
-                  <!-- Button to generate QR Code for
-                   the entered data -->
-                  <button type="button" class=
-                    "btn btn-default" id="generate">
-                    Generate
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <script src=
-            "https://code.jquery.com/jquery-3.5.1.js">
-          </script>
-          
-          <script>
-            // Function to HTML encode the text
-            // This creates a new hidden element,
-            // inserts the given text into it 
-            // and outputs it out as HTML
-            function htmlEncode(value) {
-              return $('<div/>').text(value)
-                .html();
-            }
-          
-            $(function () {
-          
-              // Specify an onclick function
-              // for the generate button
-              $('#generate').click(function () {
-          
-                // Generate the link that would be
-                // used to generate the QR Code
-                // with the given data 
-                let finalURL =
-        'https://chart.googleapis.com/chart?cht=qr&chl=' +
-                  htmlEncode($('#content').val()) +
-                  '&chs=160x160&chld=L|0'
-          
-                // Replace the src of the image with
-                // the QR code image
-                $('.qr-code').attr('src', finalURL);
-              });
-            });
-          </script>
-        </body>
-          
-        </html>
+<form method="POST" action="">
+    <div class="bankandplaceinfo">
+
+        <div class="qrprint">
+                                                
+            <h2>Receiving place</h2>
+            <p>insert place</p>
+            <p>insert time</p>
+            <p>insert date</p>
+
+        <h2>Receiving Bank</h2>
+       
+        <p>insert bank</p>
+        <p>insert time</p>
+        <p>insert date</p>
+        </div>
+
+
     </div>
 
+    <div class="qrgenerate">
+        
+<br>
+<br>
+  
+		
+		<h3>QR Code for Subsidy Claim</h3>
+
+        <div><input id="qr-text" type="text" placeholder="Text to generate QR code"/></div>
+        <br/>
+        <div>
+            <button class="qr-btn" onclick="generateQRCode()">Create QR Code</button>
+        </div>
+        <br/>
+        <p id="qr-result">This is deault QR code:</p>
+        <canvas id="qr-code"></canvas>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+		<script>
+			/* JS comes here */
+			var qr;
+			(function() {
+                    qr = new QRious({
+                    element: document.getElementById('qr-code'),
+                    size: 200,
+                    value: 'https://studytonight.com'
+                });
+            })();
+            
+            function generateQRCode() {
+                var qrtext = document.getElementById("qr-text").value;
+                document.getElementById("qr-result").innerHTML = "QR code for " + qrtext +":";
+                alert(qrtext);
+                qr.set({
+                    foreground: 'black',
+                    size: 200,
+                    value: qrtext
+                });
+            }
+		</script>
+
+<button class="print" onclick="display()">Click to Print</button>
+<script>
+   function display() {
+      window.print();
+   }
+</script>
+        
+
+        </html>
+    </div>
+</form>
 </div>
 {% endblock %}

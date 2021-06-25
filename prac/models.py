@@ -3,13 +3,13 @@ from django.utils import timezone
 
 
 class Psrsignup(models.Model):
-	firstname = models.CharField(max_length=50, default="", null=True)
-	lastname = models.CharField(max_length=50, default="", null=True)
+	completename = models.CharField(max_length=50, default="", null=True)
 	address = models.TextField(default="")
 	occupationhead = models.CharField(max_length=50, default="")
 	salaryhead = models.IntegerField(default="")
 
 class Familyinfo(models.Model):
+	completename = models.ForeignKey(Psrsignup, null=True, on_delete=models.CASCADE)
 	familyname1 = models.CharField(max_length=50, default="")
 	familyname2 = models.CharField(max_length=50, default="")
 	familyname3 = models.CharField(max_length=50, default="")
@@ -19,16 +19,17 @@ class Familyinfo(models.Model):
 	salary1 = models.IntegerField(default="")
 	salary2 = models.IntegerField(default="")
 	salary3 = models.IntegerField(default="")
-	totalsalary = models.IntegerField(default=None)
+	totalsalary = models.IntegerField(default="")
 
 class Subsidyconfirmation(models.Model):
+	completename = models.ForeignKey(Psrsignup, null=True, on_delete= models.CASCADE)
 	file = models.FileField(blank=True, null=True)
 	contact = models.IntegerField(default="")
 	date = models.DateTimeField(auto_now_add=True)
 	subsidy = models.IntegerField(default="")
 
 class Receivingplacedate(models.Model):
-	pdname = models.ForeignKey(Psrsignup, default=None, on_delete=models.CASCADE)
+	completename = models.ForeignKey(Psrsignup, null=True, on_delete= models.CASCADE)
 
 	PLACE_CHOICES = (
 	    ('Phase 1', 'PHASE1'),
@@ -41,7 +42,7 @@ class Receivingplacedate(models.Model):
 	time = models.TimeField(default="")
 
 class Receivingbankpawnshop(models.Model):
-	bpname = models.ForeignKey(Psrsignup, default=None, on_delete=models.CASCADE)
+	completename = models.ForeignKey(Psrsignup, null=True, on_delete= models.CASCADE)
 	BANKPAWN_CHOICES = (
 	    ('Landbank', 'LANDBANK'),
 	    ('PNB', 'PNB'),
@@ -53,33 +54,18 @@ class Receivingbankpawnshop(models.Model):
 	date = models.DateField(default="")
 	time = models.TimeField(default="")
 
-class PSRStatus(models.Model):
-	pstatus = models.ForeignKey(Psrsignup, default=None, on_delete=models.CASCADE)
-	STAT_CHOICE = {
-	('RECEIVED', 'received'),
-	('PENDING', 'pending'),
-	('DENIED', 'denied'),
-	}
-	stat = models.CharField(max_length=20, default="", choices=STAT_CHOICE)
-
-class Additionalassistance(models.Model):
-	aaname = models.ForeignKey(Psrsignup, default=None, on_delete=models.CASCADE)
-	aaaddress = models.CharField(max_length=50, default="", null=True)
-	contact = models.IntegerField(default="")
-	loan = models.IntegerField(default="")
-
 class Inquries(models.Model):
 	iname = models.CharField(max_length=30, default="")
 	icontact = models.IntegerField(default=None)
 	comments = models.TextField(default="")
 	RATE_CHOICES = {
-		('1', 'poor'),
-		('2', 'weak'),
-		('3', 'good'),
-		('4', 'very good'),
-		('5', 'excellent'),
+		('poor', 'poor'),
+		('weak', 'weak'),
+		('good', 'good'),
+		('very good', 'very good'),
+		('excellent', 'excellent'),
 	}
-	rate = models.CharField(max_length=2, default="", choices =RATE_CHOICES, null=True)
+	rate = models.CharField(max_length=15, default="", choices =RATE_CHOICES, null=True)
 	TYPE_CHOICES = {
 	('Suggestion', 'Suggestion'),
 	('Question', 'Question'),
